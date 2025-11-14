@@ -7,7 +7,7 @@ studentsControllers.getAll = (req, res) =>{
             /* res.json({
                 data: students
             }) */
-            res.render("index.ejs", {students});
+            res.render("../views/index.ejs", {students});
         })
         .catch((err)=>{
             res.status(500).json({
