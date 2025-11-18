@@ -20,9 +20,6 @@ teachersControllers.getOne = (req, res) => {
     teachersDaos.getOne(req.params.teacher_id)
     .then((teacher) => {
         if(teacher){
-            /* res.json({
-                data: teacher
-            }) */
            res.render("edit2.ejs", {teacher})
         }else{
             res.status(404).json({
