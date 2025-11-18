@@ -4,9 +4,10 @@ const teachersControllers = {};
 teachersControllers.getAll = (req, res)=>{
     teachersDaos.getAll()
     .then((teachers) =>{
-        res.json({
+        /* res.json({
             data: teachers
-        })
+        }) */
+        res.render("../views/index2.ejs", {teachers});
     })
     .catch((error) => {
         res.status(500).json({
@@ -19,9 +20,10 @@ teachersControllers.getOne = (req, res) => {
     teachersDaos.getOne(req.params.teacher_id)
     .then((teacher) => {
         if(teacher){
-            res.json({
+            /* res.json({
                 data: teacher
-            })
+            }) */
+           res.render("edit2.ejs", {teacher})
         }else{
             res.status(404).json({
                 message: "Teacher not found"
