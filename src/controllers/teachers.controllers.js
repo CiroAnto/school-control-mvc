@@ -41,10 +41,7 @@ teachersControllers.insertOne = (req, res) => {
     teachersDaos.insertOne(req.body)
     .then((newTeacher) => {
         if(newTeacher){
-            res.status(201).json({
-                message: "Teacher created successfully",
-                data: newTeacher
-            })
+           res.redirect("/api/teachers/getAll");
         }
     })
     .catch((error) => {
