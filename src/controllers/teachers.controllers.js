@@ -56,10 +56,7 @@ teachersControllers.updateOne = (req, res) => {
     teachersDaos.updateOne(req.params.teacher_id, req.body)
     .then((updatedTeacher) => {
         if(updatedTeacher){
-            res.json({
-                message: "Teacher updated successfully",
-                data: updatedTeacher
-            })
+            res.redirect("/api/teachers/getAll");
         }else{
             res.status(404).json({
                 message: "Teacher not found"
@@ -72,10 +69,7 @@ teachersControllers.deleteOne =(req, res) => {
     teachersDaos.deleteOne(req.params.teacher_id)
     .then((deletedTeacher) => {
         if(deletedTeacher){
-            res.json({
-                message: "Teacher deleted successfully",
-                data: deletedTeacher
-            })
+            res.redirect("/api/teachers/getAll");
         }else{
             res.status(404).json({
                 message: "Teacher not found"
