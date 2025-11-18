@@ -37,6 +37,7 @@ teachersControllers.getOne = (req, res) => {
     })
 }
 
+
 teachersControllers.insertOne = (req, res) => {
     teachersDaos.insertOne(req.body)
     .then((newTeacher) => {
