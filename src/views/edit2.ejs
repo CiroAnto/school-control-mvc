@@ -28,7 +28,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/material-icons@1.13.14/iconfont/material-icons.min.css"
     />
-    <title>School control</title>
+    <title>School control Teacher</title>
   </head>
   <body>
     <div class="container">
@@ -90,7 +90,9 @@
                   placeholder="Search"
                   aria-label="Search"
                 />
-                <a class="btn btn-outline-success" type="submit"> Search </a>
+                <a class="btn btn-outline-success" type="submit">
+                  Search
+                </a>
               </form>
             </div>
           </div>
@@ -103,11 +105,13 @@
               <form
                 class="action"
                 method="post"
-                action="/api/teachers/updateOne/<%= teacher.teacher_id %>" 
+                action="/api/teachers/updateOne/<%= teacher.teacher_id %>"
               >
                 <div class="row">
                   <div class="col-lg-6">
-                    <label for="txtTeacherId" class="form-label">ID</label>
+                    <label for="txtTeacherId" class="form-label"
+                      >ID</label
+                    >
                     <input
                       type="text"
                       class="form-control"
@@ -123,7 +127,7 @@
                       class="form-control"
                       id="txtName"
                       name="name"
-                      value="<%= teacher.name %>"
+                      value="<%= teacher.teacher_id %>"
                     />
                   </div>
                 </div>
@@ -151,6 +155,7 @@
                     />
                   </div>
                 </div>
+                
                 <div class="row">
                   <div class="col-lg-6">
                     <label for="txtEmail" class="form-label">Email</label>
@@ -185,11 +190,9 @@
                     />
                   </div>
                   <div class="col-lg-6">
-                    <label for="txtYearsOfService" class="form-label"
-                      >Años</label
-                    >
+                    <label for="txtYearsOfService" class="form-label">Años</label>
                     <input
-                      type="number"
+                      type="text"
                       class="form-control"
                       id="txtYearsOfService"
                       name="years_of_service"
