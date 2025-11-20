@@ -4,9 +4,10 @@ const subjectsControllers = {};
 subjectsControllers.getAll = (req, res) =>{
     subjectsDaos.getAll()
     .then((subjects) => {
-        res.json({
+        /* res.json({
             data: subjects
-        })
+        }) */
+       res.render("../views/index3.ejs", {subjects});
     })
     .catch((error) => {
         res.status(500).json({
@@ -19,9 +20,10 @@ subjectsControllers.getOne = (req, res) => {
     subjectsDaos.getOne(req.params.subject_id)
     .then((subject) => {
         if(subject){
-            res.json({
+            /* res.json({
                 data: subject
-            })
+            }) */
+           res.render("edit3.ejs", {subject})
         }else{
             res.status(404).json({
                 message: "Subject not Found"
@@ -39,10 +41,11 @@ subjectsControllers.insertOne = (req, res) => {
     subjectsDaos.insertOne(req.body)
     .then((newSubject) => {
         if(newSubject){
-            res.status(201).json({
+            /* res.status(201).json({
                 message: "Subject created successafully",
                 data: newSubject
-            })
+            }) */
+           res.redirect("/api/subjects/getAll");
         }
     })
     .catch((error) => {
@@ -56,10 +59,11 @@ subjectsControllers.updateOne = (req, res) => {
     subjectsDaos.updateOne(req.params.subject_id, req.body)
     .then((updatedSubject) => {
         if(updatedSubject){
-            res.json({
+            /* res.json({
                 message: "Subject updated successfully",
                 data:updatedSubject
-            })
+            }) */
+           res.redirect("/api/subjects/getAll");
         }
     })
     .catch((error) =>{
@@ -73,10 +77,11 @@ subjectsControllers.deleteOne = (req, res) => {
     subjectsDaos.deleteOne(req.params.subject_id)
     .then((deletedSubject) => {
         if(deletedSubject){
-            res.json({
+            /* res.json({
                 message: "Subject deleted successfully",
                 data: deletedSubject
-            })
+            }) */
+           res.redirect("/api/subjects/getAll");
         }else{
             res.status(404).json({
                 message: "Subject not found"
