@@ -81,7 +81,7 @@ subjectsControllers.deleteOne = (req, res) => {
                 message: "Subject deleted successfully",
                 data: deletedSubject
             }) */
-           res.redirect("/api/subjects/getAll");
+           res.redirect("/api/subjects/getAll")
         }else{
             res.status(404).json({
                 message: "Subject not found"
