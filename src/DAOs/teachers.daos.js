@@ -25,7 +25,7 @@ teachersDaos.insertOne = async(teacherData) => {
 teachersDaos.updateOne = async(teacher_id, updateData) => {
     const updatedTeacher = await Teacher.findOneAndUpdate({
         teacher_id: teacher_id
-    }, {updateData});
+    }, updateData);
     return updatedTeacher;
 };
 
